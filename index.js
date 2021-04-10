@@ -1,10 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const app = express();
 const port = process.env.PORT || 3000;
 const userRoutes = require("./routes/routes");
 
 app.use(bodyParser.json());
+var corsOptions = {
+  origin: ["http://localhost:19006", "http://mymindapi.herokuapp.com"],
+  credentials: false,
+  methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE"],
+};
+app.use(cors(corsOptions));
+
 app.use(
   bodyParser.urlencoded({
     extended: true,
