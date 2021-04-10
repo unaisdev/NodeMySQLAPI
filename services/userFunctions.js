@@ -1,7 +1,7 @@
 const db = require("./database");
 const helper = require("../helper");
 const config = require("../config");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 async function getAllPaginated(page = 1) {
